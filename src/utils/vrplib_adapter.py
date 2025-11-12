@@ -21,6 +21,9 @@ class VRPLibAdapter:
             # Pour cette démonstration, nous créons des instances synthétiques
             # car les vraies instances VRPLib nécessitent des fichiers spécifiques
             
+            # Normaliser le nom pour éviter les problèmes de casse
+            instance_name_lower = instance_name.lower()
+            
             if instance_name.startswith("A-n32"):
                 return VRPLibAdapter._create_synthetic_instance(31, 5, "A-n32-k5")
             elif instance_name.startswith("A-n33"):
@@ -31,8 +34,11 @@ class VRPLibAdapter:
                 return VRPLibAdapter._create_synthetic_instance(35, 5, "A-n36-k5")
             elif instance_name.startswith("A-n37"):
                 return VRPLibAdapter._create_synthetic_instance(36, 5, "A-n37-k5")
+            elif instance_name_lower.startswith("x-n101"):
+                return VRPLibAdapter._create_synthetic_instance(100, 25, "X-n101-k25")
             else:
                 # Instance par défaut
+                print(f"WARNING: Instance {instance_name} non reconnue, utilisation de l'instance par défaut (20 clients)")
                 return VRPLibAdapter._create_synthetic_instance(20, 3, instance_name)
                 
         except Exception as e:
@@ -100,7 +106,8 @@ class VRPLibAdapter:
             "A-n39-k5": 822,
             "A-n45-k6": 944,
             "A-n48-k7": 1073,
-            "A-n54-k7": 1167
+            "A-n54-k7": 1167,
+            "X-n101-k25": 27591  # Instance de 100 clients
         }
         
         if instance_name in optimal_costs:
@@ -111,6 +118,8 @@ class VRPLibAdapter:
             }
         else:
             # Estimation pour instances inconnues
+            print(f"WARNING: Coût optimal non trouvé pour {instance_name}")
+            print(f"Clés disponibles: {list(optimal_costs.keys())}")
             return None
     
     @staticmethod

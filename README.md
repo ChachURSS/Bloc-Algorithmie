@@ -1,4 +1,4 @@
-# 🚛 VRP Optimization for ADEME
+# VRP Optimization for ADEME
 
 **Comprehensive Vehicle Routing Problem solver with environmental impact focus**
 
@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Production_Ready-brightgreen.svg)]()
 
-## 🎯 Project Overview
+## Project Overview
 
 This project implements a comprehensive Vehicle Routing Problem (VRP) solver designed for the French Environment Agency (ADEME) with a focus on:
 
@@ -15,7 +15,7 @@ This project implements a comprehensive Vehicle Routing Problem (VRP) solver des
 - **Scientific validation** (VRPLib benchmarking)
 - **Industrial scalability** (1000+ customers)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -51,7 +51,7 @@ print(f"Routes: {len(solution.routes)}")
 print(f"Feasible: {solution.feasible}")
 ```
 
-### 🎮 Demonstrations
+### Demonstrations
 
 Run the included demos to see the solver in action:
 
@@ -63,7 +63,7 @@ python demo_complete.py
 python demo_vrplib_simple.py
 ```
 
-## 📚 Documentation
+## Documentation
 
 ### Jupyter Notebooks
 
@@ -72,23 +72,23 @@ python demo_vrplib_simple.py
 
 ### Key Features
 
-#### 🧮 Algorithms
+#### Algorithms
 - **Constructive Heuristics**: Greedy, Clarke & Wright Savings
 - **Metaheuristics**: Simulated Annealing, Tabu Search
 - **Advanced**: ALNS (Adaptive Large Neighborhood Search)
 
-#### 🔗 Constraints
+#### Constraints
 - **Capacity constraints** for vehicles
 - **Time windows** for customers
 - **Heterogeneous fleet** management
 - **Dynamic traffic** considerations
 
-#### 📊 Validation
+#### Validation
 - **VRPLib integration** for scientific benchmarking
 - **Statistical analysis** with confidence intervals
 - **Performance metrics** and gap calculation
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 src/
@@ -115,7 +115,7 @@ data/                      # Test instances and results
 docs/                      # Additional documentation
 ```
 
-## 📈 Performance Results
+## Performance Results
 
 ### VRPLib Benchmark Results
 
@@ -127,13 +127,13 @@ docs/                      # Additional documentation
 
 *Note: Negative gaps indicate our synthetic instances allow more efficient solutions than VRPLib references*
 
-### 🌱 Environmental Impact
+### Environmental Impact
 
 - **Distance reduction**: 42% compared to traditional methods
 - **CO₂ savings**: 15+ tons/year for average company
 - **ROI**: Positive within 6 months
 
-## 🔧 Advanced Usage
+## Advanced Usage
 
 ### Custom Algorithm Selection
 
@@ -178,7 +178,7 @@ results = VRPLibAdapter.benchmark_instance("A-n32-k5", "savings")
 print(f"Gap: {results['avg_gap']:.2f}%")
 ```
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run all tests
@@ -191,7 +191,7 @@ python -m pytest tests/test_vrp_solver.py
 python -m pytest --cov=src tests/
 ```
 
-## 📊 Validation & Benchmarking
+## Validation & Benchmarking
 
 The solver has been validated against:
 
@@ -201,12 +201,12 @@ The solver has been validated against:
 - **Statistical significance tests**
 
 Key validation metrics:
-- ✅ Gap vs optimal: < 10%
-- ✅ Computation time: < 1min/100 customers
-- ✅ Feasibility rate: > 95%
-- ✅ CO₂ reduction: > 10%
+- Gap vs optimal: < 10%
+- Computation time: < 1min/100 customers
+- Feasibility rate: > 95%
+- CO₂ reduction: > 10%
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
@@ -223,21 +223,21 @@ pre-commit install
 python -m pytest
 ```
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
 
-## 🏆 Recognition
+## Recognition
 
 This project was developed as part of the ADEME (French Environment Agency) initiative for sustainable transportation optimization.
 
 **Key achievements:**
-- 🥇 Performance exceeding VRPLib benchmarks
-- 🌱 Quantified environmental impact
-- 🔬 Scientific rigor with statistical validation
-- 🏭 Industrial scalability proven
+- Performance exceeding VRPLib benchmarks
+- Quantified environmental impact
+- Scientific rigor with statistical validation
+- Industrial scalability proven
 
-## 📞 Support & Contact
+## Support & Contact
 
 - **Technical Support**: [GitHub Issues](../../issues)
 - **Research Collaboration**: research@cesidcp.fr
@@ -245,6 +245,6 @@ This project was developed as part of the ADEME (French Environment Agency) init
 
 ---
 
-**🌟 Ready to transform logistics optimization for environmental sustainability!**
+**Ready to transform logistics optimization for environmental sustainability**
 
-*Developed with ❤️ by CesiCDP Research Team*
+*Developed with dedication by CesiCDP Research Team*

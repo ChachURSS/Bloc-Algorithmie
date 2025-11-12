@@ -22,7 +22,7 @@ def demo_vrplib_simple():
     print("=== DEMO VRPLIB INTEGRATION ===")
     print("Application VRP pour ADEME")
     print("Equipe CesiCDP - Octobre 2025")
-    print()
+    print("")
     
     # Test instances (taille croissante)
     test_instances = ["A-n32-k5", "A-n33-k5", "A-n34-k5"]
@@ -91,7 +91,8 @@ def demo_vrplib_simple():
             continue
     
     # Analyse globale
-    print(f"\n\nANALYSE GLOBALE")
+    print("\n")
+    print("ANALYSE GLOBALE")
     print("=" * 30)
     
     if all_results:
@@ -113,7 +114,7 @@ def demo_vrplib_simple():
         print(f"Taux faisabilite: {feasible_rate:.0%}")
         
         # Comparaison des algorithmes
-        print(f"\nComparaison algorithmes:")
+        print("\nComparaison algorithmes:")
         for algo in algorithms:
             algo_results = [r for r in all_results if r['algorithm'] == algo]
             if algo_results:
@@ -121,7 +122,7 @@ def demo_vrplib_simple():
                 avg_time_algo = sum(r['time'] for r in algo_results) / len(algo_results)
                 print(f"  {algo}: cout={avg_cost:.2f}, temps={avg_time_algo:.3f}s")
     
-    print(f"\nBENCHMARK TERMINE")
+    print("\nBENCHMARK TERMINE")
     print(f"Instances testees: {len(test_instances)}")
     print(f"Resultats obtenus: {len(all_results)}")
     

@@ -12,7 +12,7 @@ import time
 
 def demo_vrplib_integration():
     """Démonstration avec instances VRPLib standards."""
-    print("🔬 INTÉGRATION VRPLIB - VALIDATION SCIENTIFIQUE")
+    print("INTÉGRATION VRPLIB - VALIDATION SCIENTIFIQUE")
     print("=" * 60)
     
     # Instances de test (petites pour la démo)
@@ -21,11 +21,11 @@ def demo_vrplib_integration():
     
     for instance_name in test_instances:
         try:
-            print(f"\n📋 Test de l'instance: {instance_name}")
+            print(f"\nTest de l'instance: {instance_name}")
             print("-" * 40)
             
             # Charger l'instance VRPLib
-            print("📥 Chargement de l'instance...")
+            print("Chargement de l'instance...")
             instance = VRPLibAdapter.load_instance(instance_name)
             
             # Charger la solution optimale
@@ -37,7 +37,7 @@ def demo_vrplib_integration():
             print(f"   Coût optimal: {optimal_cost}")
             
             # Résoudre avec notre algorithme
-            print("🧮 Résolution avec algorithme Greedy...")
+            print("Résolution avec algorithme Greedy...")
             start_time = time.time()
             solver = VRPSolver(instance)
             solution = solver.solve("greedy")
@@ -65,14 +65,14 @@ def demo_vrplib_integration():
             print(f"   Gap: {gap:.2f}%" if gap else "   Gap: N/A")
             print(f"   Temps: {solve_time:.3f}s")
             print(f"   Routes: {len(solution.routes)}")
-            print(f"   Faisable: {'✅' if solution.feasible else '❌'}")
+            print(f"   Faisable: {'Oui' if solution.feasible else 'Non'}")
             
         except Exception as e:
-            print(f"❌ Erreur avec {instance_name}: {e}")
+            print(f"Erreur avec {instance_name}: {e}")
             continue
     
     # Résumé des résultats
-    print("\n📊 RÉSUMÉ DES RÉSULTATS")
+    print("\nRÉSUMÉ DES RÉSULTATS")
     print("=" * 60)
     print(f"{'Instance':<15} {'Clients':<8} {'Optimal':<8} {'Notre':<8} {'Gap%':<6} {'Temps':<6}")
     print("-" * 60)
@@ -92,18 +92,18 @@ def demo_vrplib_integration():
     
     if valid_gaps > 0:
         avg_gap = total_gap / valid_gaps
-        print(f"\n📈 Gap moyen: {avg_gap:.2f}%")
+        print(f"\nGap moyen: {avg_gap:.2f}%")
         
         if avg_gap < 10:
-            print("✅ Performance acceptable (< 10%)")
+            print("Performance acceptable (< 10%)")
         else:
-            print("⚠️ Performance à améliorer (> 10%)")
+            print("Performance à améliorer (> 10%)")
     
     return results
 
 def demo_advanced_features():
     """Démonstration des fonctionnalités avancées."""
-    print("\n🚀 FONCTIONNALITÉS AVANCÉES")
+    print("\nFONCTIONNALITÉS AVANCÉES")
     print("=" * 50)
     
     # Créer une instance avec contraintes avancées
@@ -130,7 +130,7 @@ def demo_advanced_features():
     
     instance.calculate_distance_matrix()
     
-    print(f"✅ Instance créée avec {len(instance.demands)-1} clients")
+    print(f"Instance créée avec {len(instance.demands)-1} clients")
     print("   - Fenêtres temporelles actives")
     print("   - Flotte hétérogène")
     print("   - Temps de service variables")
@@ -142,7 +142,7 @@ def demo_advanced_features():
     tw_constraint = TimeWindowConstraint(instance)
     cap_constraint = CapacityConstraint(instance)
     
-    print("\n🔍 Test des contraintes:")
+    print("\nTest des contraintes:")
     
     # Résoudre et analyser
     solver = VRPSolver(instance)
@@ -164,7 +164,7 @@ def demo_advanced_features():
             print(f"     - {violation}")
     
     # Afficher planning détaillé
-    print("\n📅 PLANNING DÉTAILLÉ:")
+    print("\nPLANNING DÉTAILLÉ:")
     print("-" * 40)
     
     for route_idx, route in enumerate(solution.routes):
@@ -192,8 +192,8 @@ def demo_advanced_features():
 
 def main():
     """Fonction principale de la démonstration avancée."""
-    print("🚛 DÉMONSTRATION AVANCÉE - APPLICATION VRP ADEME")
-    print("🔬 Validation Scientifique et Fonctionnalités Avancées")
+    print("DÉMONSTRATION AVANCÉE - APPLICATION VRP ADEME")
+    print("Validation Scientifique et Fonctionnalités Avancées")
     print("=" * 70)
     
     try:
@@ -203,22 +203,22 @@ def main():
         # 2. Fonctionnalités avancées
         demo_advanced_features()
         
-        print("\n🎯 CONCLUSIONS")
+        print("\nCONCLUSIONS")
         print("=" * 40)
-        print("✅ Intégration VRPLib fonctionnelle")
-        print("✅ Contraintes avancées implémentées")
-        print("✅ Système de validation en place")
-        print("✅ Application prête pour déploiement ADEME")
+        print("Intégration VRPLib fonctionnelle")
+        print("Contraintes avancées implémentées")
+        print("Système de validation en place")
+        print("Application prête pour déploiement ADEME")
         
-        print("\n📋 PROCHAINES ÉTAPES:")
+        print("\nPROCHAINES ÉTAPES:")
         print("1. Intégration des métaheuristiques (Recuit Simulé, Tabu)")
         print("2. Optimisation des paramètres algorithmiques")
         print("3. Tests sur instances de grande taille (1000+ clients)")
         print("4. Analyse d'impact environnemental approfondie")
         
     except Exception as e:
-        print(f"\n❌ Erreur durant la démonstration: {e}")
-        print("🔧 Vérifiez que vrplib est correctement installé")
+        print(f"\nErreur durant la démonstration: {e}")
+        print("Vérifiez que vrplib est correctement installé")
 
 if __name__ == "__main__":
     main()

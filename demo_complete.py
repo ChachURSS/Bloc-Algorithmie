@@ -326,7 +326,7 @@ def visualize_solution(instance: VRPInstance, solution: Solution):
 
 def analyze_solution(instance: VRPInstance, solution: Solution):
     """Analyser une solution en détail."""
-    print(f"\\n📊 ANALYSE DE LA SOLUTION")
+    print(f"\\nANALYSE DE LA SOLUTION")
     print(f"{'='*50}")
     
     # Informations générales
@@ -334,13 +334,13 @@ def analyze_solution(instance: VRPInstance, solution: Solution):
     print(f"Nombre de clients: {len(instance.demands) - 1}")
     print(f"Nombre de véhicules: {len(solution.routes)}")
     print(f"Coût total: {solution.total_cost:.2f}")
-    print(f"Solution réalisable: {'✅' if solution.feasible else '❌'}")
+    print(f"Solution réalisable: {'OK' if solution.feasible else 'NON'}")
     
     if solution.violations:
         print(f"Violations: {', '.join(solution.violations)}")
     
     # Analyse par route
-    print(f"\\n🚛 DÉTAIL DES ROUTES:")
+    print(f"\\nDÉTAIL DES ROUTES:")
     print(f"{'-'*60}")
     
     total_demand = 0
@@ -365,7 +365,7 @@ def analyze_solution(instance: VRPInstance, solution: Solution):
     
     # Statistiques globales
     total_capacity = sum(instance.vehicle_capacities) if instance.vehicle_capacities else instance.capacity * instance.vehicle_count
-    print(f"\\n📈 STATISTIQUES GLOBALES:")
+    print(f"\\nSTATISTIQUES GLOBALES:")
     print(f"{'-'*30}")
     print(f"Demande totale: {total_demand}")
     print(f"Capacité totale: {total_capacity}")
@@ -375,7 +375,7 @@ def analyze_solution(instance: VRPInstance, solution: Solution):
 
 def benchmark_algorithms():
     """Comparer différentes configurations."""
-    print(f"\\n🔬 BENCHMARK DES ALGORITHMES")
+    print(f"\\nBENCHMARK DES ALGORITHMES")
     print(f"{'='*50}")
     
     # Créer plusieurs instances de test
@@ -414,62 +414,62 @@ def benchmark_algorithms():
         })
     
     # Afficher les résultats
-    print(f"\\n📋 RÉSULTATS DU BENCHMARK:")
+    print(f"\\nRÉSULTATS DU BENCHMARK:")
     print(f"{'-'*80}")
     print(f"{'Instance':<20} {'Clients':>8} {'Véhicules':>10} {'Coût':>10} {'Temps(s)':>10} {'Faisable':>10}")
     print(f"{'-'*80}")
     
     for result in results:
-        feasible_str = "✅" if result['feasible'] else "❌"
+        feasible_str = "OK" if result['feasible'] else "NON"
         print(f"{result['instance']:<20} {result['clients']:>8} {result['vehicles']:>10} "
               f"{result['cost']:>10.2f} {result['time']:>10.3f} {feasible_str:>10}")
 
 
 def main():
     """Fonction principale de démonstration."""
-    print(f"🚛 APPLICATION VRP POUR ADEME")
+    print(f"APPLICATION VRP POUR ADEME")
     print(f"{'='*60}")
     print(f"Optimisation des Tournées de Livraison")
     print(f"Projet de Mobilité Multimodale Intelligente")
     print(f"{'='*60}")
     
     # 1. Créer une instance d'exemple
-    print(f"\\n📝 1. CRÉATION D'UNE INSTANCE D'EXEMPLE")
+    print(f"\\n1. CRÉATION D'UNE INSTANCE D'EXEMPLE")
     instance = create_sample_instance()
-    print(f"✅ Instance créée: {instance.name}")
+    print(f"Instance créée: {instance.name}")
     print(f"   - {len(instance.demands) - 1} clients")
     print(f"   - {instance.vehicle_count} véhicules de capacité {instance.capacity}")
     print(f"   - Fenêtres temporelles: {len(instance.time_windows)} clients")
     
     # 2. Résoudre avec l'algorithme greedy
-    print(f"\\n🧮 2. RÉSOLUTION AVEC ALGORITHME GREEDY")
+    print(f"\\n2. RÉSOLUTION AVEC ALGORITHME GREEDY")
     solver = VRPSolver(instance)
     
     start_time = time.time()
     solution = solver.solve("greedy")
     solve_time = time.time() - start_time
     
-    print(f"✅ Solution trouvée en {solve_time:.3f}s")
+    print(f"Solution trouvée en {solve_time:.3f}s")
     print(f"   - Coût total: {solution.total_cost:.2f}")
     print(f"   - Nombre de routes: {len(solution.routes)}")
-    print(f"   - Faisabilité: {'✅' if solution.feasible else '❌'}")
+    print(f"   - Faisabilité: {'OK' if solution.feasible else 'NON'}")
     
     # 3. Analyse détaillée
     analyze_solution(instance, solution)
     
     # 4. Visualisation
-    print(f"\\n📊 3. VISUALISATION DE LA SOLUTION")
+    print(f"\\n3. VISUALISATION DE LA SOLUTION")
     try:
         visualize_solution(instance, solution)
-        print(f"✅ Graphique affiché")
+        print(f"Graphique affiché")
     except Exception as e:
-        print(f"❌ Erreur lors de la visualisation: {e}")
+        print(f"Erreur lors de la visualisation: {e}")
     
     # 5. Benchmark
     benchmark_algorithms()
     
     # 6. Suggestions d'amélioration
-    print(f"\\n💡 SUGGESTIONS D'AMÉLIORATION")
+    print(f"\\nSUGGESTIONS D'AMÉLIORATION")
     print(f"{'='*40}")
     print(f"1. Implémenter le Recuit Simulé pour améliorer les solutions")
     print(f"2. Ajouter la recherche Tabou pour l'intensification")
@@ -477,7 +477,7 @@ def main():
     print(f"4. Développer l'optimisation du trafic dynamique")
     print(f"5. Connecter à vrplib pour les benchmarks standards")
     
-    print(f"\\n🎯 IMPACT ENVIRONNEMENTAL ESTIMÉ")
+    print(f"\\nIMPACT ENVIRONNEMENTAL ESTIMÉ")
     print(f"{'='*40}")
     total_distance = solution.total_cost
     co2_factor = 0.2  # kg CO2 par km (estimation)
@@ -486,7 +486,7 @@ def main():
     print(f"Réduction CO₂ estimée: {co2_saved:.2f} kg avec optimisation")
     print(f"Équivalent à: {co2_saved/2.3:.1f} litres d'essence économisés")
     
-    print(f"\\n✅ DÉMONSTRATION TERMINÉE - APPLICATION PRÊTE POUR ADEME")
+    print(f"\\nDÉMONSTRATION TERMINÉE - APPLICATION PRÊTE POUR ADEME")
 
 
 if __name__ == "__main__":
